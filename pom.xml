@@ -11,11 +11,44 @@
         <module>sharding-jdbc</module>  
         <module>sharding-proxy</module>  
         <module>sharding-sidecar</module>  
-        <module>sharding-scaling</module> 
+        <module>sharding-scaling</module>
+        <module>sharding-core</module>
     </modules>  
     <properties> 
         <maven.deploy.skip>true</maven.deploy.skip>
-    </properties>  
+    </properties>
+
+    <dependencyManagement>
+
+        <dependencies>
+
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-core</artifactId>
+                <version>4.1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-core-api</artifactId>
+                <version>4.1.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>3.4.5</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.20</version>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+
     <build> 
         <finalName>${project.artifactId}</finalName>  
         <plugins> 
